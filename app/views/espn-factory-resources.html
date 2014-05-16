@@ -1,0 +1,45 @@
+<h4>declaring a REST $resource in an angularjs factory</h4>
+	<p>
+		This will have to go mostly unexplained for now.
+	</p>
+	<p>
+		For more information - checkout my sample git project on <a href="https://code.espn.com/patarleth/angular-tutorial/tree/step-3-add-REST-calls-to-singleton">code.espn.com/patarleth/angular-tutorial</a>
+	</p>
+
+	Short version, if you genereate a factory using yo 
+	<ul>
+		<li>
+			<strong>yo angular:factory espn</strong>
+		</li>
+	</ul>
+	edit the factory js file	
+	<ul>
+		<li>
+			app/scripts/services/espn.js
+		</li>
+	</ul> 
+	
+	and add
+	<pre>
+  var espnNowResource = $resource(
+    'http://api.espn.com/v1/now?apikey=v37fddaw8ge4knf8yqq7nnd9', 
+    { callback: 'JSON_CALLBACK' }, { get: { method: 'JSONP' } 
+  });
+  var espnnow = function () {
+  	return espnNowResource.get({}).$promise;
+    };
+    
+    ...(dont' actually paste ... btw)
+    
+    // Public API here 
+    return {                                                                                            
+    espnnow: function () {                                                                            
+      return espnnow();                                                                               
+    }
+  };
+	</pre>
+	
+	The factory will now have a single REST resource definition used anytime espn.espnnow() is called.
+<hr />
+
+<h4><a href="#/">BACK</a>&nbsp;<span class="glyphicon glyphicon-backward"></span>

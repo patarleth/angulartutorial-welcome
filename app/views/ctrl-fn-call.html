@@ -1,0 +1,33 @@
+<h4>calling a controller function in a view</h4>
+<p>
+	<button ng-click="foo()">ng-click me!</button>
+</p>
+<ul>
+	hello - {{hello}}
+</ul>
+
+<p>
+	controller code
+</p>
+<pre>
+	angular.module('ngTutorialApp')
+	  .controller('CtrlFnCallCtrl', function ($scope) {
+	  	<strong>$scope.hello</strong> = 'nurse';
+	  	<strong>$scope.callMe</strong> = function() {
+	  		$scope.hello='goodbye';
+	  	};
+	  });
+</pre>
+
+<p>
+	view
+<ul>
+	&lt;button ng-click="<strong>callMe()</strong>"&gt;ng-click me!&lt;/button&gt;&lt;br /&gt;<br />
+	howdy - {{'{{'}}<strong>hello</strong>}}
+</ul>
+</p>
+
+
+<hr />
+
+<h4><a href="#/">BACK</a>&nbsp;<span class="glyphicon glyphicon-backward"></span>
