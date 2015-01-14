@@ -2,5 +2,5 @@
 
 angular.module('ngTutorialApp')
   .controller('CookieCtrl', function ($scope) {
-  	$scope.foo = 'foo!';
-  });
+      $scope.foo = 'foo!';
+    });
