@@ -1,0 +1,10 @@
+<h4>wire up the espn.js factory to the headlines.js controller</h4><p>in <strong>app/scripts/controllers/headlines.js</strong> modify the constructor to include the espn factory name like so<pre>
+'use strict';
+angular.module('tutorialApp').controller('HeadlinesCtrl', function ($scope<strong>, espn</strong>) {
+  espn.espnnow().then(function (result) {
+    $scope.espnnow = result;
+  }, function (err) {
+    console.log(err);
+  });
+});
+</pre></p><p>now, whenever the HeadlinesCtrl is created, it will call espn.espnnow() asychonously. When it is successful, sets a variable available in<ul>app/views/headlines.html</ul>or log an error if the REST call throws an erorr or returns an http status code indicating failure.</p><hr><h4><a href="#/">BACK</a>&nbsp;<span class="glyphicon glyphicon-backward"></span></h4>

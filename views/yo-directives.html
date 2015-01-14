@@ -1,0 +1,8 @@
+<h4>directives, building a more symantic web</h4><p>Angularjs and it's templating framework is built (almost) entirely on a single concept, the<ul><strong>directive</strong>.</ul></p><p>a simple and often used example of a directive is ng-repeat<ul>&lt;div ng-repeat="headline in espnnow.feed"&gt;</ul></p><p>a directive enables HTML extentions and a templates behaviour by coupling together data, code (controllers) and view.</p><p>in the ng-repeat directive the data would be the string "headline in espnnew.feed"<br>the code for the directive is responsible for figuring out the data binding, aka what espnnow.feed is looping over the array.<br>the contents of the div are used as the view to create the output</p><p>directives are not limited to attributes on existing tags you can create entirely new HTML tags and do tricks like -<pre>
+  &lt;dl class="dl-horizontal" ng-repeat="next in espnnow.feed"&gt;
+    &lt;dt&gt;&lt;span ng-show="next.type != 'BlogEntry'"&gt;{{next.type}}&lt;/span&gt;&lt;span ng-show="next.type == 'BlogEntry'"&gt;{{next.blogName + ' blog'}}&lt;/span&gt;&lt;/dt&gt;
+    &lt;dd&gt;
+      <strong>&lt;espn-headline headline="next"&gt;&lt;/espn-headline&gt;</strong>
+    &lt;/dd&gt;
+  &lt;/dl&gt;
+</pre></p>
